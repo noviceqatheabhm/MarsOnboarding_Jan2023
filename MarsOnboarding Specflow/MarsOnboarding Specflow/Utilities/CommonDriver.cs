@@ -8,15 +8,21 @@ using System.Threading.Tasks;
 
 namespace MarsOnboarding_Specflow.Utilities
 {
+    [Binding]
     public class CommonDriver
     {
         public static IWebDriver driver;
-    }
-    public class ConstantHelpers
-    {
-         //Base Url
-         public static string Url = "http://localhost:5000";
 
+
+
+        //Base Url
+        public static string Url = "http://localhost:5000";
+
+        [AfterScenario]
+        public void CloseTestRun()
+        {
+            driver.Quit();
+        }
     }
     
 }

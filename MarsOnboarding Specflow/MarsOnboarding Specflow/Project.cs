@@ -9,11 +9,10 @@ static void Main(string[] args)
     IWebDriver driver = new ChromeDriver();
 
     //Initialize the login page
-    LoginPage loginPageObj = new LoginPage();
-    loginPageObj.LoginActions(driver);
+    
 
 
-    ProfileLanguage profileLanguageObj = new ProfileLanguage();
+    UserLanguage profileLanguageObj = new UserLanguage();
     profileLanguageObj.AddLanguage(driver);
     profileLanguageObj.UpdateLanguage(driver);
     profileLanguageObj.DeleteLanguage(driver);

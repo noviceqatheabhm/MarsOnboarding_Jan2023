@@ -11,16 +11,21 @@ Background: Login to the website
 	Scenario: Add new Language
 
 	When User adds a '<language>' and '<languageLevel>'
-	Then the '<language>' and '<languageLevel>' is updated successfully on the profile
+	Then the '<language>' and '<languageLevel>' is added successfully on the profile
 
 	Examples: 
-	| language		| languageLevel		|
-	| English		| Native/Bilingual  |
-	
+	| language | languageLevel    |
+	| English  | Native/Bilingual |
+	| French   | Conversational   |
+		
 
 	Scenario: Update Language
-	When User updates a language
-	Then The language is updated successfully on the user profile
+	When User updates a '<language>' and '<languageLevel>'
+	Then The '<language>' and '<languageLevel>' is updated successfully on the profile
+
+	Examples: 
+	| language | languageLevel    |
+	| German   | Basic            |
 
 Scenario: Delete Language
 	When User deletes a language
@@ -56,8 +61,13 @@ Scenario: Verify validation error for Description tab
 @ignore
 Scenario: Add new Skill
 	
-	When User adds a skill
-	Then the Skill is added successfully
+	When User adds a '<skill>' and '<Level>'
+	Then the '<skill>' and '<Level>' is added successfully on the profile
+
+	Examples: 
+    | skill		| Level		   |
+    | Selenium	| Expert       |
+    | C#		| Intermediate |
 
 @ignore
 Scenario: Update new Skill
@@ -98,8 +108,13 @@ Scenario: Delete Education
 @ignore
 Scenario: Add new Certifications
 	
-	When User adds a new certification
-	Then the certification is added successfully
+	When User adds a '<Certificate>' and '<From>' and '<Year>'
+	Then the '<Certificate>' and '<From>' and '<Year>' is added successfully on the profile
+
+	 Examples: 
+    | Certificate						| From					 | Year    |
+    | Automation Test using Selenium    | INDUSTRYCONNECT        | 2023    |
+    
 
 @ignore
 Scenario: Update new Certifications

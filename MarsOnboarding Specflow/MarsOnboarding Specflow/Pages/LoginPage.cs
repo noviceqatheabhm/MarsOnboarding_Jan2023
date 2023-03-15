@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MarsOnboarding_Specflow.Utilities;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MarsOnboarding_Specflow.Pages
 {
-    public class LoginPage
+    public class LoginPage : CommonDriver
     {
-        public void LoginActions(IWebDriver driver)
+        public void LoginActions()
         {
             driver.Manage().Window.Maximize();
             // enter the url
@@ -18,7 +19,6 @@ namespace MarsOnboarding_Specflow.Pages
             //identify the sign in
             IWebElement signinTextbox = driver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[1]/div/a"));
             signinTextbox.Click();
-
 
             //enter the login details - username and password
             IWebElement usernameTextbox = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[1]/input"));
