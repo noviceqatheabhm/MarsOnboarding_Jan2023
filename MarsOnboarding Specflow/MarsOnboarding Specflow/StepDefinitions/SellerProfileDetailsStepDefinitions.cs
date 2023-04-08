@@ -11,26 +11,34 @@ namespace MarsOnboarding_Specflow.Pages
     [Binding]
     public class SellerProfileDetailsStepDefinitions : CommonDriver
     {
+        LoginPage loginPageObj;
 
-        
+        UserLanguage LanguagePageObj = new UserLanguage();
+        UserSkills skillsPageObj = new UserSkills();
+        UserCertification certificationObj = new UserCertification();
+
+        //Constructor
+        public SellerProfileDetailsStepDefinitions()
+        {
+            loginPageObj= new LoginPage(); 
+        }
+
+
         [Given(@"User logs in to the website")]
         public void GivenUserLogsInToTheWebsite()
         {
-            LoginPage loginPageObj = new LoginPage();
-            loginPageObj.LoginActions();
+           loginPageObj.LoginActions();
         }
 
         [When(@"User adds a '([^']*)' and '([^']*)'")]
         public void WhenUserAddsAAnd(string language, string languageLevel)
         {
-            UserLanguage LanguagePageObj = new UserLanguage();
             LanguagePageObj.CreateLanguages(language, languageLevel);
         }
 
         [Then(@"the '([^']*)' and '([^']*)' is added successfully on the profile")]
         public void ThenTheAndIsAddedSuccessfullyOnTheProfilee(string language, string languageLevel)
         {
-            UserLanguage LanguagePageObj = new UserLanguage();
             LanguagePageObj.CheckLangugaeAdded(language, languageLevel);
         }
 
@@ -115,14 +123,14 @@ namespace MarsOnboarding_Specflow.Pages
         [When(@"User adds a '([^']*)' and '([^']*)'")]
         public void WhenUserAddsAAnnd(string skill, string Level)
         {
-            UserSkills skillsPageObj = new UserSkills();
+            //
             skillsPageObj.CreateSkills(skill, Level);
         }
 
         [Then(@"the '([^']*)' and '([^']*)' is added successfully on the profile")]
         public void ThenTheAndIsAddedSuccessfullyOnTheProfile(string skill, string Level)
         {
-            UserSkills skillsPageObj = new UserSkills();
+            //
             skillsPageObj.CheckSkillAdded(skill, Level);
         }
 
@@ -196,14 +204,13 @@ namespace MarsOnboarding_Specflow.Pages
         [When(@"User adds a '([^']*)' and '([^']*)' and '([^']*)'")]
         public void WhenUserAddsAAndAnd(string Certificate, string From, string Year)
         {
-            UserCertification certificationObj = new UserCertification();
+            //
             certificationObj.CreateCertifications(Certificate, From, Year);
         }
 
         [Then(@"the '([^']*)' and '([^']*)' and '([^']*)' is added successfully on the profile")]
         public void ThenTheAndAndIsAddedSuccessfullyOnTheProfile(string Certificate, string From, string Year)
         {
-            UserCertification certificationObj = new UserCertification();
             certificationObj.CheckCertificationAdded(Certificate, From, Year);
         }
 

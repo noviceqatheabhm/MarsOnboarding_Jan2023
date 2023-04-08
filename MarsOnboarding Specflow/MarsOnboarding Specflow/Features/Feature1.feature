@@ -8,7 +8,7 @@ The people seeking for some skills can look into my details
 Background: Login to the website
 	Given User logs in to the website
 
-	Scenario: Add new Language
+	Scenario Outline: Add new Language
 
 	When User adds a '<language>' and '<languageLevel>'
 	Then the '<language>' and '<languageLevel>' is added successfully on the profile
@@ -19,7 +19,7 @@ Background: Login to the website
 	| French   | Conversational   |
 		
 
-	Scenario: Update Language
+	Scenario Outline: Update Language
 	When User updates a '<language>' and '<languageLevel>'
 	Then The '<language>' and '<languageLevel>' is updated successfully on the profile
 
@@ -59,7 +59,7 @@ Scenario: Verify validation error for Description tab
 	Then Error message should be displayed 
 
 @ignore
-Scenario: Add new Skill
+Scenario Outline: Add new Skill
 	
 	When User adds a '<skill>' and '<Level>'
 	Then the '<skill>' and '<Level>' is added successfully on the profile
@@ -106,7 +106,7 @@ Scenario: Delete Education
 	Then Education is deleted successfully
 
 @ignore
-Scenario: Add new Certifications
+Scenario Outline: Add new Certifications
 	
 	When User adds a '<Certificate>' and '<From>' and '<Year>'
 	Then the '<Certificate>' and '<From>' and '<Year>' is added successfully on the profile
